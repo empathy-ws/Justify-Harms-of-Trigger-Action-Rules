@@ -8,7 +8,7 @@ import pandas as pd
 import ftfy
 from module import ContinuousPromptLearning
 from transformers import GPT2Tokenizer, AdamW
-from utils import Batchify6, now_time, ids2tokens
+from utils import Batchify4, now_time, ids2tokens
 
 
 parser = argparse.ArgumentParser(description='Towards Explainable Security for ECA Rules')
@@ -75,9 +75,9 @@ for i in range(len(service_df)):
     word2id[ftfy.fix_text(service_df.loc[i][0]).strip()] = i
     weights.append(service_df.loc[i][1:len(service_df.loc[i])])
 
-train_data = Batchify6(train_df, tokenizer, bos, eos, args.words, word2id, args.batch_size, shuffle=True)
-val_data = Batchify6(val_df, tokenizer, bos, eos, args.words, word2id, args.batch_size)
-test_data = Batchify6(test_df, tokenizer, bos, eos, args.words, word2id, args.batch_size)
+train_data = Batchify4(train_df, tokenizer, bos, eos, args.words, word2id, args.batch_size, shuffle=True)
+val_data = Batchify4(val_df, tokenizer, bos, eos, args.words, word2id, args.batch_size)
+test_data = Batchify4(test_df, tokenizer, bos, eos, args.words, word2id, args.batch_size)
 
 ###############################################################################
 # Build the model
