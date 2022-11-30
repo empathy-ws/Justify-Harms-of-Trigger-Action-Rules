@@ -1,1 +1,1 @@
-# Justify Harm of Trigger-Action Rules
+# Justify Harms of Trigger-Action Rules
