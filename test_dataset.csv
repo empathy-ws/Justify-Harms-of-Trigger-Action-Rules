@@ -1,4 +1,4 @@
-triggerTitle;triggerChannelTitle;actionTitle;actionChannelTitle;title;desc;target;motivation
+triggerTitle;triggerChannelTitle;actionTitle;actionChannelTitle;title;desc;target;justification
 New status message on page;Facebook Pages;Share an update;LinkedIn;Facebook to Linkedin;When you post on Facebook it goes to your linkedin profile also;1;This rule might cause a Personal harm because  there might be different audiences on the two platforms
 New feed item;RSS Feed;Post a tweet;Twitter;If RSS from blog then tweet;Sample to create an Applet to tweet all blog posts from a RSS feed;1;This rule might cause a Personal harm because if the user has a private profile for the first social network and forgets that the rule is active, unwanted posts will automatically be published on the other social network, where the audience might not be the same as the first.
 You enter an area;Android Location;Set ringtone volume;Android Device;turn on ringtone when home;turn on ring tone when home;1;This rule might cause a Personal harm because it can activat the rington of the user's device even when it's not necessary 

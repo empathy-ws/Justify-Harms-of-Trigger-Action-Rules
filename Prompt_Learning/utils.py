@@ -24,7 +24,7 @@ class Batchify:
                 data.iloc[i]['actionTitle']) + '; title=' + ftfy.fix_text(
                 data.iloc[i]['title']) + '; desc=' + ftfy.fix_text(data.iloc[i]['desc']) + '] ' + 'This rule might cause a ' + convert_class(data.iloc[i]['target']) + ' harm')
 
-            t.append('{} {} {}'.format(bos, data.iloc[i]['motivation'].split('harm')[1], eos))
+            t.append('{} {} {}'.format(bos, data.iloc[i]['justification'].split('harm')[1], eos))
 
         encoded_inputs = tokenizer(t, padding=True, return_tensors='pt')
         self.seq = encoded_inputs['input_ids'].contiguous()
@@ -64,7 +64,7 @@ class Batchify2:
             features.append('input=[' + 'triggerTitle=' + ftfy.fix_text(data.iloc[i]['triggerTitle']) + '; triggerChannelTitle=' + ftfy.fix_text(data.iloc[i]['triggerChannelTitle']) + '; actionTitle=' + ftfy.fix_text(data.iloc[i]['actionTitle']) + '; actionChannelTitle=' + ftfy.fix_text(data.iloc[i]['actionChannelTitle']) + '; title=' + ftfy.fix_text(data.iloc[i]['title']) + '; desc=' + ftfy.fix_text(data.iloc[i]['desc']) + '] ' +
                             'This rule might cause a ' + convert_class(data.iloc[i]['target']) + ' harm')
 
-            t.append('{} {} {}'.format(bos, data.iloc[i]['motivation'].split('harm')[1], eos))
+            t.append('{} {} {}'.format(bos, data.iloc[i]['justification'].split('harm')[1], eos))
 
         encoded_inputs = tokenizer(t, padding=True, return_tensors='pt')
         self.seq = encoded_inputs['input_ids'].contiguous()
@@ -100,7 +100,7 @@ class Batchify3:
             features.append('Why might rule ' + 'input=[' + 'triggerTitle=' + ftfy.fix_text(data.iloc[i]['triggerTitle']) + '; triggerChannelTitle=' + ftfy.fix_text(data.iloc[i]['triggerChannelTitle']) + '; actionTitle=' + ftfy.fix_text(data.iloc[i]['actionTitle']) + '; actionChannelTitle=' + ftfy.fix_text(data.iloc[i]['actionChannelTitle']) + '; title=' + ftfy.fix_text(data.iloc[i]['title']) + '; desc=' + ftfy.fix_text(data.iloc[i]['desc']) + ']' +
                             'cause ' + convert_class(data.iloc[i]['target']) + ' harm? ')
 
-            t.append('{} {} {}'.format(bos, data.iloc[i]['motivation'].split('harm')[1], eos))
+            t.append('{} {} {}'.format(bos, data.iloc[i]['justification'].split('harm')[1], eos))
 
         encoded_inputs = tokenizer(t, padding=True, return_tensors='pt')
         self.seq = encoded_inputs['input_ids'].contiguous()
@@ -141,7 +141,7 @@ class Batchify4:
                 data.iloc[i]['title']) + '; desc=' + ftfy.fix_text(data.iloc[i]['desc']) + ']' +
                             'cause ' + convert_class(data.iloc[i]['target']) + ' harm? ')
 
-            t.append('{} {} {}'.format(bos, data.iloc[i]['motivation'].split('harm')[1], eos))
+            t.append('{} {} {}'.format(bos, data.iloc[i]['justification'].split('harm')[1], eos))
 
         encoded_inputs = tokenizer(t, padding=True, return_tensors='pt')
         self.seq = encoded_inputs['input_ids'].contiguous()

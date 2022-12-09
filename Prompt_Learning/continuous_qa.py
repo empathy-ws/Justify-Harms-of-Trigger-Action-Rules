@@ -59,7 +59,7 @@ bos = '<bos>'
 eos = '<eos>'
 pad = '<pad>'
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2', bos_token=bos, eos_token=eos, pad_token=pad)
-col_names = ['triggerTitle','triggerChannelTitle','actionTitle','actionChannelTitle','title','desc','target','motivation']
+col_names = ['triggerTitle','triggerChannelTitle','actionTitle','actionChannelTitle','title','desc','target','justification']
 
 train_df = pd.read_csv(args.train_path,skiprows=1,sep=';',names=col_names,encoding = "ISO-8859-1")
 test_df = pd.read_csv(args.test_path,skiprows=1,sep=';',names=col_names,encoding = "ISO-8859-1")
@@ -216,6 +216,6 @@ text_predict = [' '.join(tokens) for tokens in tokens_predict]
 print(text_test)
 print(text_predict)
 with open(prediction_path, 'w', encoding='utf-8') as fp:
-    for motivation in text_predict:
-        fp.write("%s\n" % motivation)
+    for justification in text_predict:
+        fp.write("%s\n" % justification)
 print(now_time() + 'Generated text saved to ({})'.format(prediction_path))

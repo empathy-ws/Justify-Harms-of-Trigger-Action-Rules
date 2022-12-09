@@ -38,7 +38,7 @@ def extract_keywords(dataset, n_keywords, n_gram_range, stop_words):
         final_keywords.append(listTot)
         i += 1
 
-    return pd.DataFrame({'keywords':final_keywords, 'rule':dataset['desc'], 'text':dataset['motivation']})
+    return pd.DataFrame({'keywords':final_keywords, 'rule':dataset['desc'], 'text':dataset['justification']})
 
 def extract_string(keywords):
   string = ""
@@ -93,7 +93,7 @@ def keyWordOperation(string, n_keywords, n_gram_range, stop_words):
 # Load data
 ###############################################################################
 
-col_names = ['triggerTitle','triggerChannelTitle','actionTitle','actionChannelTitle','title','desc','target','motivation']
+col_names = ['triggerTitle','triggerChannelTitle','actionTitle','actionChannelTitle','title','desc','target','justification']
 
 df_path = './full_dataset.csv'
 df = pd.read_csv(df_path,skiprows=1,sep=';',names=col_names,encoding = "ISO-8859-1")
@@ -231,17 +231,17 @@ with open(model_path, 'rb') as f:
 # Run on test data
 ###############################################################################
 
-gold_motivations = test_df['text']
+gold_justifications = test_df['text']
 generated = []
 
 for i in range(0, len(test_df)):
     keywords=[test_df['keywords'][i]]
     print("Keywords extracted: ", keywords)
-    new_motivation = generate(keywords, model, tokenizer)
-    generated.append(new_motivation)
-    print("New motivation: ", new_motivation)
+    new_justification = generate(keywords, model, tokenizer)
+    generated.append(new_justification)
+    print("New justification: ", new_justification)
 
-test_set['motivation_generated'] = generated
+test_set['justification_generated'] = generated
 test_set.to_csv('test_set_results_T5_KeyToText_evaluated_4.csv')
 
 

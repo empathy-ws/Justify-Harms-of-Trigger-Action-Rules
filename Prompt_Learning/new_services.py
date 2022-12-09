@@ -42,7 +42,7 @@ full_train_df = pd.read_csv('./FullDataset_116k.csv',skiprows=1,sep=';',names=co
 
 full_services = getServices(full_train_df)
 
-col_names = ['triggerTitle','triggerChannelTitle','actionTitle','actionChannelTitle','title','desc','target', 'motivation']
+col_names = ['triggerTitle','triggerChannelTitle','actionTitle','actionChannelTitle','title','desc','target', 'justification']
 
 subset_train_df = pd.read_csv('./training_dataset.csv',skiprows=1,sep=';',names=col_names,encoding = "ISO-8859-1")
 
