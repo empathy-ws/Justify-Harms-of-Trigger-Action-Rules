@@ -6,6 +6,40 @@ from sklearn.metrics.pairwise import cosine_similarity
 import torch
 from transformers import T5Tokenizer, T5ForConditionalGeneration,Adafactor
 
+def extract_keywords(dataset, n_keywords, n_gram_range, stop_words):
+    final_keywords = []
+    i = 0
+    while i < len(dataset):
+        channel = "if " + ftfy.fix_text(dataset.iloc[i, 0]) + " then " + ftfy.fix_text(dataset.iloc[i, 2])
+        title = ftfy.fix_text(dataset.iloc[i, 4])
+        desc = ftfy.fix_text(dataset.iloc[i, 5])
+
+        try:
+            listKeyChannel = keyWordOperation(channel, n_keywords, n_gram_range, stop_words) + " " + ftfy.fix_text(
+            dataset.iloc[i, 1]) + " " + ftfy.fix_text(dataset.iloc[i, 3])
+        except:
+            listKeyChannel = ""
+
+        try:
+            listKeyTitle = keyWordOperation(title, n_keywords, n_gram_range, stop_words)
+        except:
+            listKeyTitle = ""
+
+        try:
+            listKeyDesc = keyWordOperation(desc, n_keywords, n_gram_range, stop_words)
+        except:
+            listKeyDesc = ""
+
+        keywords = "" + listKeyChannel + " " + listKeyTitle + " " + listKeyDesc + " " + getTarget(dataset.iloc[i, 6])
+
+        listTotSplit = keywords.split()
+        listTot = " | ".join(sorted(set(listTotSplit), key=listTotSplit.index))
+
+        final_keywords.append(listTot)
+        i += 1
+
+    return pd.DataFrame({'keywords':final_keywords, 'rule':dataset['desc'], 'text':dataset['motivation']})
+
 def extract_string(keywords):
   string = ""
 
@@ -85,123 +119,14 @@ stop_words = "english"
 n_keywords = 4 # 5, 6, 7, 8
 
 ###############################################################################
-# Extract candidates from training data
+# Extract keywords from data
 ###############################################################################
 
-keywords_training = []
-i = 0
-while i < len(training_set):
-    channel = "if " + ftfy.fix_text(training_set.iloc[i, 0]) + " then " + ftfy.fix_text(training_set.iloc[i, 2])
-    title = ftfy.fix_text(training_set.iloc[i, 4])
-    desc = ftfy.fix_text(training_set.iloc[i, 5])
+train_df = extract_keywords(training_set, n_keywords, n_gram_range, stop_words)
 
-    try:
-        listKeyChannel = keyWordOperation(channel, n_keywords, n_gram_range, stop_words) + " " + ftfy.fix_text(
-        training_set.iloc[i, 1]) + " " + ftfy.fix_text(training_set.iloc[i, 3])
-    except:
-        listKeyChannel = ""
+test_df = extract_keywords(test_set, n_keywords, n_gram_range, stop_words)
 
-    try:
-        listKeyTitle = keyWordOperation(title, n_keywords, n_gram_range, stop_words)
-    except:
-        listKeyTitle = ""
-
-    try:
-        listKeyDesc = keyWordOperation(desc, n_keywords, n_gram_range, stop_words)
-    except:
-        listKeyDesc = ""
-
-    keywords = "" + listKeyChannel + " " + listKeyTitle + " " + listKeyDesc + " " + getTarget(training_set.iloc[i, 6])
-
-    listTotSplit = keywords.split()
-    listTot = " | ".join(sorted(set(listTotSplit), key=listTotSplit.index))
-
-    print("ListTot:", listTot)
-
-    keywords_training.append(listTot)
-    i += 1
-
-train_df = pd.DataFrame({'keywords':keywords_training, 'rule':val_set['desc'], 'text':training_set['motivation']})
-
-###############################################################################
-# Extract candidates from test data
-###############################################################################
-
-keywords_test = []
-i = 0
-while i < len(test_set):
-    channel = "if " + ftfy.fix_text(test_set.iloc[i, 0]) + " then " + ftfy.fix_text(test_set.iloc[i, 2])
-    title = ftfy.fix_text(test_set.iloc[i, 4])
-    desc = ftfy.fix_text(test_set.iloc[i, 5])
-
-    try:
-        listKeyChannel = keyWordOperation(channel, n_keywords, n_gram_range, stop_words) + " " + ftfy.fix_text(
-            training_set.iloc[i, 1]) + " " + ftfy.fix_text(training_set.iloc[i, 3])
-    except:
-        listKeyChannel = ""
-
-    try:
-        listKeyTitle = keyWordOperation(title, n_keywords, n_gram_range, stop_words)
-    except:
-        listKeyTitle = ""
-
-    try:
-        listKeyDesc = keyWordOperation(desc, n_keywords, n_gram_range, stop_words)
-    except:
-        listKeyDesc = ""
-
-    keywords = "" + listKeyChannel + " " + listKeyTitle + " " + listKeyDesc + " " + getTarget(
-        test_set.iloc[i, 6])
-
-    listTotSplit = keywords.split()
-    listTot = " | ".join(sorted(set(listTotSplit), key=listTotSplit.index))
-
-    print(listTot)
-
-    keywords_test.append(listTot)
-    i += 1
-
-test_df = pd.DataFrame({'keywords':keywords_test, 'rule':val_set['desc'], 'text':test_set['motivation']})
-
-###############################################################################
-# Extract candidates from validation data
-###############################################################################
-
-keywords_val = []
-i = 0
-while i < len(val_set):
-    channel = "if " + ftfy.fix_text(val_set.iloc[i, 0]) + " then " + ftfy.fix_text(val_set.iloc[i, 2])
-    title = ftfy.fix_text(val_set.iloc[i, 4])
-    desc = ftfy.fix_text(val_set.iloc[i, 5])
-
-    try:
-        listKeyChannel = keyWordOperation(channel, n_keywords, n_gram_range, stop_words) + " " + ftfy.fix_text(
-            training_set.iloc[i, 1]) + " " + ftfy.fix_text(training_set.iloc[i, 3])
-    except:
-        listKeyChannel = ""
-
-    try:
-        listKeyTitle = keyWordOperation(title, n_keywords, n_gram_range, stop_words)
-    except:
-        listKeyTitle = ""
-
-    try:
-        listKeyDesc = keyWordOperation(desc, n_keywords, n_gram_range, stop_words)
-    except:
-        listKeyDesc = ""
-
-    keywords = "" + listKeyChannel + " " + listKeyTitle + " " + listKeyDesc + " " + getTarget(
-        val_set.iloc[i, 6])
-
-    listTotSplit = keywords.split()
-    listTot = " | ".join(sorted(set(listTotSplit), key=listTotSplit.index))
-
-    print(listTot)
-
-    keywords_val.append(listTot)
-    i += 1
-
-val_df = pd.DataFrame({'keywords':keywords_val, 'rule':val_set['desc'], 'text':val_set['motivation']})
+val_df = extract_keywords(val_set, n_keywords, n_gram_range, stop_words)
 
 if torch.cuda.is_available():
    dev = torch.device("cuda:0")
@@ -265,7 +190,7 @@ for epoch in range(1, num_of_epochs + 1):
         # clear out the gradients of all Variables
         optimizer.zero_grad()
 
-        # Forward propogation
+        # Forward propagation
         outputs = model(input_ids=inputbatch, labels=labelbatch)
         loss = outputs.loss
         loss_num = loss.item()
