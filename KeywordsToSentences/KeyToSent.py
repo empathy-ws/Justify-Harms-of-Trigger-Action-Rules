@@ -61,7 +61,7 @@ def getTarget(id):
 
 def generate(text,model,tokenizer):
    model.eval()
-   input_ids = tokenizer.encode("justification generation: {}</s>".format(text),
+   input_ids = tokenizer.encode("justification generation: {}".format(text),
                                return_tensors="pt").to(dev)
    outputs = model.generate(input_ids)
 
@@ -176,8 +176,8 @@ for epoch in range(1, num_of_epochs + 1):
         labelbatch = []
         new_df = train_df[i * batch_size:i * batch_size + batch_size]
         for indx, row in new_df.iterrows():
-            input = 'justification generation: ' + row['keywords'] + '</s>'
-            labels = row['text'].split('harm')[1] + '</s>'
+            input = 'justification generation: ' + row['keywords']
+            labels = row['text'].split('harm')[1]
             inputbatch.append(input)
             labelbatch.append(labels)
         inputbatch = tokenizer.batch_encode_plus(inputbatch, padding=True, max_length=30, return_tensors='pt')[
