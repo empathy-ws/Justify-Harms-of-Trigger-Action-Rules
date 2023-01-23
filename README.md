@@ -72,7 +72,7 @@ An annotated sample is shown below.
     "triggerChannelTitle": "Twitter",
     "triggerTitle": "New mention of you",
     "target": "2",
-    "justification": "An attacker could mention the user on social networks causing the continuously blinking of lights, damaging them."
+    "justification": "This rule might cause a Physical harm because an attacker could mention the user on social networks causing the continuously blinking of lights, damaging them."
 }
 ```
 
