@@ -13,22 +13,22 @@ University of Salerno
 
 <table align="center">
     <tr>
-     <td align="center"><b>Dataset Characteristics:</td>
-        <td align="center"><i>Textual</td>
+     <td align="center"><b>Attribute Characteristics:</td>
+        <td align="center"><i>Categorical</td>
         <td align="center"><b>Number of instances:</td>
         <td align="center"><i>525</td>
     </tr>
     <tr>
-        <td align="center"><b>Attribute Characteristics:</td>
-        <td align="center"><i>Categorical</td>
+        <td align="center"><b>Collection Method:</td>
+        <td align="center"><i>Crowd + Authors</td>
         <td align="center"><b>Number of attributes:</td>
         <td align="center"><i>8</td>
     </tr>
     <tr>
         <td align="center"><b>Associated Tasks:</td>
         <td align="center"><i>Natural Language Generation</td>
-        <td align="center"><b>Number of classes:</td>
-        <td align="center"><i>4</td>
+        <td align="center"><b>Total Annotators:</td>
+        <td align="center"><i>11</td>
     </tr>
 </table>
 
