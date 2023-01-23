@@ -94,7 +94,7 @@ We split the dataset into 3 subsets:
     </tr>
     <tr>
         <td align="center"><b>Justification:</td>
-        <td align="center">is a natural language sentence that explain the reason why the applet might cause the harm</td>
+        <td align="center">is a natural language sentence that explain the reason why the applet might cause specific harm</td>
     </tr>
 </table> 
 
