@@ -143,9 +143,9 @@ We insert the Skip-Gram representations within the hard prompts, yielding <i> hy
 
 Below are commands for performing GPT-2 model training using the hybrid prompt learning-based strategy (Hybrid - QA and Hybrid - SI, respectively)
 ```
-python continuous_qa.py
+python hybrid_qa.py
 ------------------------------------
-python continuous_span.py
+python hybrid_span.py
 ```
 
 # Relevant Papers
