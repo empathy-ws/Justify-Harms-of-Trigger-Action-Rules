@@ -61,21 +61,6 @@ We split the dataset into 3 subsets:
     </tr>
 </table>
 
-An annotated sample is shown below.
-
-```
-{
-    "title": "Blink light when mentioned on Twitter",
-    "description": "Blinks light when you receive a mention on Twitter.",
-    "actionChannelTitle": "LIFX",
-    "actionTitle": "Blink lights",
-    "triggerChannelTitle": "Twitter",
-    "triggerTitle": "New mention of you",
-    "target": "2",
-    "justification": "This rule might cause a Physical harm because an attacker could mention the user on social networks causing the continuously blinking of lights, damaging them."
-}
-```
-
 # Attribute Information
 
 <table align="center">
@@ -112,6 +97,21 @@ An annotated sample is shown below.
         <td align="center">is a natural language sentence that explain the reason why an applet might cause specific harm</td>
     </tr>
 </table> 
+
+An annotated sample is shown below.
+
+```
+{
+    "title": "Blink light when mentioned on Twitter",
+    "description": "Blinks light when you receive a mention on Twitter.",
+    "actionChannelTitle": "LIFX",
+    "actionTitle": "Blink lights",
+    "triggerChannelTitle": "Twitter",
+    "triggerTitle": "New mention of you",
+    "target": "2",
+    "justification": "This rule might cause a Physical harm because an attacker could mention the user on social networks causing the continuously blinking of lights, damaging them."
+}
+```
 
 # Usage
 
