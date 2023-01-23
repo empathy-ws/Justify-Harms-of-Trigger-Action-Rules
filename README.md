@@ -129,7 +129,7 @@ python create_dataset.py
 ```
 
 ## Run Evaluation
-We consider two different prompts where the input is placed entirely before the slot to be filled. The former is a straightforward sequence of natural language tokens following encoded rule information named <i>span-infilling prompt</i>. 
+We consider two different prompts where the input is placed entirely before the slot to be filled. The former, named <i>span-infilling prompt</i>, is a straightforward sequence of natural language tokens following encoded rule information. 
 ```
 [r]. This rule might cause a [h] harm because [j]
 ```
