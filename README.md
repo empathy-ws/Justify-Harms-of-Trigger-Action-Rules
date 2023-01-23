@@ -150,4 +150,4 @@ python continuous_span.py
 
 # Relevant Papers
 
-[1] Breve, Bernardo, Gaetano Cimino, and Vincenzo Deufemia. "Identifying Security and Privacy Violation Rules in Trigger-Action IoT Platforms with NLP Models." IEEE Internet of Things Journal (2022).
+[1] Breve Bernardo, Gaetano Cimino, and Vincenzo Deufemia. "Identifying Security and Privacy Violation Rules in Trigger-Action IoT Platforms with NLP Models." IEEE Internet of Things Journal (2022).
