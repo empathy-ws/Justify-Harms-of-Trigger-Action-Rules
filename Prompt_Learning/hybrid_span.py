@@ -6,7 +6,7 @@ import torch
 import argparse
 import pandas as pd
 import ftfy
-from module import ContinuousPromptLearning
+from module import HybridPromptLearning
 from transformers import GPT2Tokenizer, AdamW
 from utils import Batchify, now_time, ids2tokens
 
@@ -47,7 +47,7 @@ device = torch.device('cuda' if args.cuda else 'cpu')
 
 if not os.path.exists(args.checkpoint):
     os.makedirs(args.checkpoint)
-model_path = os.path.join(args.checkpoint, 'model_continuous.pt')
+model_path = os.path.join(args.checkpoint, 'model_hybrid.pt')
 prediction_path = os.path.join(args.checkpoint, args.outf)
 
 ###############################################################################
@@ -84,7 +84,7 @@ test_data = Batchify(test_df, tokenizer, bos, eos, args.words, word2id, args.bat
 
 vocab_size = len(service_df)
 ntoken = len(tokenizer)
-model = ContinuousPromptLearning.from_pretrained('gpt2', weights)
+model = HybridPromptLearning.from_pretrained('gpt2', weights)
 model.resize_token_embeddings(ntoken)  # three tokens added, update embedding table
 model.to(device)
 

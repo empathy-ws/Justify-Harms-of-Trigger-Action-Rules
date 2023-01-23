@@ -2,7 +2,7 @@ from transformers import GPT2LMHeadModel
 import torch
 import torch.nn as nn
 
-class FeaturePrompt:
+class DiscretePrompt:
     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path, **kwargs):
         return super().from_pretrained(pretrained_model_name_or_path, **kwargs)
@@ -28,11 +28,11 @@ class FeaturePrompt:
 
             return super().forward(attention_mask=pad_input, inputs_embeds=src, labels=prediction)
 
-class DiscretePromptLearning(FeaturePrompt, GPT2LMHeadModel):
+class DiscretePromptLearning(DiscretePrompt, GPT2LMHeadModel):
     def __init__(self, config):
         super().__init__(config)
 
-class UIPrompt:
+class HybridPrompt:
     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path, weights, freezeLM=True, **kwargs):
         model = super().from_pretrained(pretrained_model_name_or_path, **kwargs)
@@ -78,6 +78,6 @@ class UIPrompt:
 
             return super().forward(attention_mask=pad_input, inputs_embeds=src, labels=prediction)
 
-class ContinuousPromptLearning(UIPrompt, GPT2LMHeadModel):
+class HybridPromptLearning(HybridPrompt, GPT2LMHeadModel):
     def __init__(self, config):
         super().__init__(config)
