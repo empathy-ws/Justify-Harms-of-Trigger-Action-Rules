@@ -68,7 +68,7 @@ merged_output = add([word_model.output, context_model.output])
 model_combined = Sequential()
 model_combined.add(Dense(1, kernel_initializer="glorot_uniform", activation="sigmoid"))
 final_model = Model([word_model.input, context_model.input], model_combined(merged_output))
-final_model.compile(loss="mean_squared_error", optimizer="rmsprop")
+final_model.compile(loss="binary_crossentropy", optimizer="rmsprop")
 final_model.summary()
 
 final_model.fit(x=[np.array(pairs[0], dtype='int32'), np.array(pairs[1], dtype='int32')],
