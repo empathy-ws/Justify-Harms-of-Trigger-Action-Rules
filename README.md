@@ -129,7 +129,7 @@ python create_dataset.py
 ```
 Finally, Channel2Vec representations are computed by running the following command
 ```
-python skip_gram_neural_services.py
+python channelToVec.py
 ```
 
 ## Run Evaluation
