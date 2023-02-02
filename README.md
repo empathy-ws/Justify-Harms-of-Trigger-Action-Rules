@@ -129,7 +129,7 @@ python create_dataset.py
 ```
 Finally, Channel2Vec representations are computed by running the following command
 ```
-python channelToVec.py
+python channel2Vec.py
 ```
 
 ## Run Evaluation
