@@ -16,7 +16,7 @@ University of Salerno
      <td align="center"><b>Attribute Characteristics:</td>
         <td align="center"><i>Categorical</td>
         <td align="center"><b>Number of samples:</td>
-        <td align="center"><i>#</td>
+        <td align="center"><i>525</td>
     </tr>
     <tr>
         <td align="center"><b>Collection Method:</td>
@@ -28,7 +28,7 @@ University of Salerno
         <td align="center"><b>Associated Tasks:</td>
         <td align="center"><i>Natural Language Generation</td>
         <td align="center"><b>Total Annotators:</td>
-        <td align="center"><i>11</td>
+        <td align="center"><i>13</td>
     </tr>
 </table>
 
@@ -43,19 +43,19 @@ We split the dataset into 3 subsets:
     </tr>
      <tr>
         <td align="center">train</td>
-        <td align="center">#</td>
+        <td align="center">435</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/training_dataset.csv"> training_dataset.csv </a></td>
         <td align="center">Model Training</td>
     </tr>
     <tr>
         <td align="center">val</td>
-        <td align="center">#</td>
+        <td align="center">30</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/val_dataset.csv"> validation_dataset.csv </a></td>
         <td align="center">Hyperparameter Tuning</td>
     </tr>
     <tr>
         <td align="center">test</td>
-        <td align="center">#</td>
+        <td align="center">60</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/test_dataset.csv"> test_dataset.csv </a></td>
         <td align="center">Model Testing, ground-truth answer is removed.</td>
     </tr>
