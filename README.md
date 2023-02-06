@@ -135,17 +135,17 @@ python channel2Vec.py
 ## Run Evaluation
 We consider two different hard prompts where the input is placed entirely before the slot to be filled. The former, named <i>span-infilling prompt</i>, is a straightforward sequence of natural language tokens following encoded rule information. 
 ```
-[r]. This rule might cause a [h] harm because [j]
+[R]. This rule might cause a [H] harm because [J]
 ```
 
 The latter is a <i> question-answering prompt </i> where the encoded rule information is placed in the middle of the prompt.
 ```
-Why might rule [r] cause a [h] harm? [j]
+Why might rule [R] cause a [H] harm? [J]
 ```
 
 We insert the Channel2Vec representations within the hard prompts, yielding <i> hybrid prompts </i> that allow us to grasp both the rule's context of execution and the rule behavior and generate a technical justification consistent with the harm involved. In particular, we apply hard-soft prompts by augmenting applets with the span-infilling or question-answering prompt, considering the features <i> Desc, Title, TriggerTitle, ActionTitle </i>, and <i> Harm </i> as discrete tokens and treating the <i> TriggerChannelTitle </i> and <i> ActionChannelTitle </i> features (i.e., the channel used for the trigger and the action, respectively) as continuous tokens.
 
-Below are commands for performing GPT-2 model training using the hybrid prompt learning-based strategy (Hybrid - QA and Hybrid - SI, respectively)
+Below are commands for performing GPT-2 model training using the hybrid prompt learning-based strategy
 ```
 python hybrid_qa.py
 ------------------------------------
