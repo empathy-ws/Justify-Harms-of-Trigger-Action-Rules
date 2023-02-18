@@ -16,7 +16,7 @@ University of Salerno
      <td align="center"><b>Attribute Characteristics:</td>
         <td align="center"><i>Categorical</td>
         <td align="center"><b>Number of samples:</td>
-        <td align="center"><i>2465</td>
+        <td align="center"><i>525</td>
     </tr>
     <tr>
         <td align="center"><b>Collection Method:</td>
@@ -28,7 +28,7 @@ University of Salerno
         <td align="center"><b>Associated Tasks:</td>
         <td align="center"><i>Natural Language Generation</td>
         <td align="center"><b>Total Annotators:</td>
-        <td align="center"><i>11</td>
+        <td align="center"><i>13</td>
     </tr>
 </table>
 
@@ -43,19 +43,19 @@ We split the dataset into 3 subsets:
     </tr>
      <tr>
         <td align="center">train</td>
-        <td align="center">1725</td>
+        <td align="center">435</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/training_dataset.csv"> training_dataset.csv </a></td>
         <td align="center">Model Training</td>
     </tr>
     <tr>
         <td align="center">val</td>
-        <td align="center">246</td>
+        <td align="center">30</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/val_dataset.csv"> validation_dataset.csv </a></td>
         <td align="center">Hyperparameter Tuning</td>
     </tr>
     <tr>
         <td align="center">test</td>
-        <td align="center">494</td>
+        <td align="center">60</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/test_dataset.csv"> test_dataset.csv </a></td>
         <td align="center">Model Testing, ground-truth answer is removed.</td>
     </tr>
@@ -135,17 +135,17 @@ python channel2Vec.py
 ## Run Evaluation
 We consider two different hard prompts where the input is placed entirely before the slot to be filled. The former, named <i>span-infilling prompt</i>, is a straightforward sequence of natural language tokens following encoded rule information. 
 ```
-[r]. This rule might cause a [h] harm because [j]
+[R]. This rule might cause a [H] harm because [J]
 ```
 
 The latter is a <i> question-answering prompt </i> where the encoded rule information is placed in the middle of the prompt.
 ```
-Why might rule [r] cause a [h] harm? [j]
+Why might rule [R] cause a [H] harm? [J]
 ```
 
 We insert the Channel2Vec representations within the hard prompts, yielding <i> hybrid prompts </i> that allow us to grasp both the rule's context of execution and the rule behavior and generate a technical justification consistent with the harm involved. In particular, we apply hard-soft prompts by augmenting applets with the span-infilling or question-answering prompt, considering the features <i> Desc, Title, TriggerTitle, ActionTitle </i>, and <i> Harm </i> as discrete tokens and treating the <i> TriggerChannelTitle </i> and <i> ActionChannelTitle </i> features (i.e., the channel used for the trigger and the action, respectively) as continuous tokens.
 
-Below are commands for performing GPT-2 model training using the hybrid prompt learning-based strategy (Hybrid - QA and Hybrid - SI, respectively)
+Below are commands for performing GPT-2 model training using the hybrid prompt learning-based strategy
 ```
 python hybrid_qa.py
 ------------------------------------
