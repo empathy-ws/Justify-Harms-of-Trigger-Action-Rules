@@ -57,7 +57,7 @@ We split the dataset into 3 subsets:
         <td align="center">test</td>
         <td align="center">60</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/test_dataset.csv"> test_dataset.csv </a></td>
-        <td align="center">Model Testing, ground-truth answer is removed.</td>
+        <td align="center">Model Testing, ground-truth answer is removed</td>
     </tr>
 </table>
 
