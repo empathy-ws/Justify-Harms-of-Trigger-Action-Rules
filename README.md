@@ -1,5 +1,5 @@
 # Justify Harms of Trigger-Action Rules
-This repository contains the supplementary material for the paper "Hybrid Prompt Learning for Generating Justifications of Security Risks Raised by Automation Scenarios" submitted to ACM Transactions on Intelligent Systems and Technology Journal. 
+This repository contains the supplementary material for the paper "Hybrid Prompt Learning for Generating Justifications of Security Risks Raised in Automation Rules" submitted to ACM Transactions on Intelligent Systems and Technology. 
 
 This material comprises the dataset employed to train the language models and the source codes useful for the repeatability of the experiments.
 
@@ -57,7 +57,7 @@ We split the dataset into 3 subsets:
         <td align="center">test</td>
         <td align="center">60</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/test_dataset.csv"> test_dataset.csv </a></td>
-        <td align="center">Model Testing, ground-truth answer is removed.</td>
+        <td align="center">Model Testing, ground-truth answer is removed</td>
     </tr>
 </table>
 
