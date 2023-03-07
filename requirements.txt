@@ -1,0 +1,8 @@
+ftfy~=6.1.1
+pandas~=1.4.2
+torch~=1.12.0
+scikit-learn~=1.1.1
+transformers~=4.17.0
+numpy~=1.23.1
+selenium~=4.1.0
+keras~=2.8.0
