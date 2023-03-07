@@ -10,7 +10,7 @@ from module import DiscretePromptLearning
 from utils import Batchify2, now_time, ids2tokens
 
 
-parser = argparse.ArgumentParser(description='Towards Explainable Security for ECA Rules')
+parser = argparse.ArgumentParser(description='Hybrid Prompt Learning for Generating Justifications of Security Risks in Automation Rules')
 parser.add_argument('--train_path', type=str, default="./training_dataset.csv")
 parser.add_argument('--test_path', type=str, default="./test_dataset.csv")
 parser.add_argument('--val_path', type=str, default="./val_dataset.csv")
