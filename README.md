@@ -103,7 +103,7 @@ An annotated sample is shown below.
 ```
 {
     "title": "Blink light when mentioned on Twitter",
-    "description": "Blinks light when you receive a mention on Twitter.",
+    "description": "Blink light when you receive a mention on Twitter.",
     "actionChannelTitle": "LIFX",
     "actionTitle": "Blink lights",
     "triggerChannelTitle": "Twitter",
