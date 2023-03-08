@@ -156,4 +156,4 @@ python hybrid_span.py
 # Relevant Papers
 [1] Mi, Xianghang, et al. "An empirical characterization of IFTTT: ecosystem, usage, and performance." Proceedings of the 2017 Internet Measurement Conference (2017).
 
-[2] Breve Bernardo, Gaetano Cimino, and Vincenzo Deufemia. "Identifying Security and Privacy Violation Rules in Trigger-Action IoT Platforms with NLP Models." IEEE Internet of Things Journal (2022).
+[2] Breve Bernardo, Gaetano Cimino, and Vincenzo Deufemia. "Identifying Security and Privacy Violation Rules in Trigger-Action IoT Platforms with NLP Models." IEEE Internet of Things Journal (2023).
