@@ -10,14 +10,14 @@ Bernardo Breve (bbreve@unisa.it), Gaetano Cimino (gcimino@unisa.it), Vincenzo De
 University of Salerno
 
 # Dataset Information
-The dataset on which we performed our study was initially collected in 2017 by Mi <i> et al. </i> through a scraping process [1] (<a href="https://www-users.cse.umn.edu/~fengqian/ifttt_measurement/">download</a>). The dataset comprised over 320,000 rules (also known as applets) gathered over a six-month period, with each applet consisting of: $(i)$ a title, $(ii)$ a description of its behavior, $(iii)$ the trigger component divided into its trigger and relative channel, and $(iv)$ the action component divided into its action and relative channel. To train and evaluate our language models, we considered a subset of 525 applets randomly selected that were classified as harmful by our harm identification algorithm proposed in [2]. In particular, the algorithm can classify an applet according to three classes of harm, namely <i>Personal harm</i>, identifying the applets that may result in the loss or compromise of sensitive data, which is solely due to the user's behavior, <i>Physical harm</i>, which refers to all the applets that may cause physical harm or damage to goods, and the harm is external, i.e., inflicted by third parties, and <i>Cybersecurity harm</i>, encompasses applets that may disrupt online services or distribute malware, and the harm is external as well. The subset of applets comprised 183 applets for the Personal harm class, 153 applets for the Physical harm class, and 189 applets for the Cybersecurity harm class.
+The dataset on which we performed our study was initially collected in 2017 by Mi <i> et al. </i> through a scraping process [1] (<a href="https://www-users.cse.umn.edu/~fengqian/ifttt_measurement/">download</a>). The dataset comprised over 320,000 rules (also known as applets) gathered over a six-month period, with each applet consisting of: $(i)$ a title, $(ii)$ a description of its behavior, $(iii)$ the trigger component divided into its trigger and relative channel, and $(iv)$ the action component divided into its action and relative channel. To train and evaluate our language models, we considered a subset of 3709 applets randomly selected that were classified as harmful by our harm identification algorithm proposed in [2]. In particular, the algorithm can classify an applet according to three classes of harm, namely <i>Personal harm</i>, identifying the applets that may result in the loss or compromise of sensitive data, which is solely due to the user's behavior, <i>Physical harm</i>, which refers to all the applets that may cause physical harm or damage to goods, and the harm is external, i.e., inflicted by third parties, and <i>Cybersecurity harm</i>, encompasses applets that may disrupt online services or distribute malware, and the harm is external as well. The subset of applets comprised 2044 applets for the Personal harm class, 727 applets for the Physical harm class, and 938 applets for the Cybersecurity harm class.
 
 <table align="center">
     <tr>
      <td align="center"><b>Attribute Characteristics:</td>
         <td align="center"><i>Categorical</td>
         <td align="center"><b>Number of samples:</td>
-        <td align="center"><i>525</td>
+        <td align="center"><i>3709</td>
     </tr>
     <tr>
         <td align="center"><b>Collection Method:</td>
@@ -29,7 +29,7 @@ The dataset on which we performed our study was initially collected in 2017 by M
         <td align="center"><b>Associated Tasks:</td>
         <td align="center"><i>Natural Language Generation</td>
         <td align="center"><b>Total Annotators:</td>
-        <td align="center"><i>13</td>
+        <td align="center"><i>18</td>
     </tr>
 </table>
 
@@ -44,19 +44,19 @@ We split the dataset into 3 subsets:
     </tr>
      <tr>
         <td align="center">train</td>
-        <td align="center">435</td>
+        <td align="center">2967</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/training_dataset.csv"> training_dataset.csv </a></td>
         <td align="center">Model Training</td>
     </tr>
     <tr>
         <td align="center">val</td>
-        <td align="center">30</td>
+        <td align="center">185</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/val_dataset.csv"> validation_dataset.csv </a></td>
         <td align="center">Hyperparameter Tuning</td>
     </tr>
     <tr>
         <td align="center">test</td>
-        <td align="center">60</td>
+        <td align="center">557</td>
         <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/test_dataset.csv"> test_dataset.csv </a></td>
         <td align="center">Model Testing</td>
     </tr>
@@ -146,11 +146,11 @@ Why might rule [R] cause a [H] harm? [J]
 
 We insert the Channel2Vec representations within the hard prompts, yielding <i> hybrid prompts </i> that allow us to grasp both the rule's context of execution and the rule behavior and generate a technical justification consistent with the harm involved. In particular, we apply hard-soft prompts by augmenting applets with the span-infilling or question-answering prompt, considering the features <i> Desc, Title, TriggerTitle, ActionTitle </i>, and <i> Harm </i> as discrete tokens and treating the <i> TriggerChannelTitle </i> and <i> ActionChannelTitle </i> features (i.e., the channel used for the trigger and the action, respectively) as continuous tokens.
 
-Below are commands for performing GPT-2 model training using the hybrid prompt learning-based strategy
+Below are commands for performing Phi model training using the hybrid prompt learning-based strategy
 ```
-python hybrid_qa.py
+python hybrid_phi_qa.py
 ------------------------------------
-python hybrid_span.py
+python hybrid_phi_span.py
 ```
 
 # Relevant Papers
