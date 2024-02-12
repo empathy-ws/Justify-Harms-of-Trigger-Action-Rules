@@ -53,7 +53,7 @@ pairs = generate_dataset(service_df, word2id, V)
 # Build skip-gram architecture
 ###############################################################################
 
-embed_size = 768 # GPT-2 embedding size
+embed_size = 2048 # Phi and Pythia embedding size (GPT-2 embedding size -> 1280)
 word_model = Sequential()
 word_model.add(Embedding(V, embed_size,
                       embeddings_initializer="glorot_uniform",
@@ -72,7 +72,7 @@ final_model.compile(loss="binary_crossentropy", optimizer="rmsprop")
 final_model.summary()
 
 final_model.fit(x=[np.array(pairs[0], dtype='int32'), np.array(pairs[1], dtype='int32')],
-                y=np.array(service_df['target'], dtype='int32'), batch_size=80, epochs=50, verbose=1)
+                y=np.array(service_df['target'], dtype='int32'), batch_size=100, epochs=4, verbose=1)
 
 word_embed_layer = word_model.layers[0]
 weights = word_embed_layer.get_weights()[0][1:]
@@ -84,4 +84,4 @@ weights = word_embed_layer.get_weights()[0][1:]
 weights_df = pd.DataFrame(weights, index=word2id)
 print(weights_df.head())
 
-weights_df.to_csv('./service_weights_85.csv')
+weights_df.to_csv('./service_weights_85_' + str(embed_size) + '.csv')

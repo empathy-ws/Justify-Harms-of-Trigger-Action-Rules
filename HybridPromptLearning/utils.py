@@ -24,7 +24,7 @@ class Batchify:
                 data.iloc[i]['actionTitle']) + '; title=' + ftfy.fix_text(
                 data.iloc[i]['title']) + '; desc=' + ftfy.fix_text(data.iloc[i]['desc']) + '] ' + 'This rule might cause a ' + convert_class(data.iloc[i]['target']) + ' harm')
 
-            t.append('{} {} {}'.format(bos, data.iloc[i]['justification'].split('harm')[1], eos))
+            t.append('{} {} {}'.format(bos, data.iloc[i]['motivation'].split('harm')[1], eos))
 
         encoded_inputs = tokenizer(t, padding=True, return_tensors='pt')
         self.seq = encoded_inputs['input_ids'].contiguous()
@@ -57,7 +57,7 @@ class Batchify:
         action_service = self.action_service[index]
         return trigger_service, action_service, prompt, seq, mask
 
-class Batchify4:
+class Batchify2:
     def __init__(self, data, tokenizer, bos, eos, seq_len, word2id, batch_size=128, shuffle=False):
         trigger_services, action_services, t, features = [], [], [], []
         for i in range(0, len(data)):
@@ -67,9 +67,9 @@ class Batchify4:
                 data.iloc[i]['triggerTitle']) + '; actionTitle=' + ftfy.fix_text(
                 data.iloc[i]['actionTitle']) + '; title=' + ftfy.fix_text(
                 data.iloc[i]['title']) + '; desc=' + ftfy.fix_text(data.iloc[i]['desc']) + ']' +
-                            'cause ' + convert_class(data.iloc[i]['target']) + ' harm? ')
+                            ' cause a ' + convert_class(data.iloc[i]['target']) + ' harm? ')
 
-            t.append('{} {} {}'.format(bos, data.iloc[i]['justification'].split('harm')[1], eos))
+            t.append('{} {} {}'.format(bos, data.iloc[i]['motivation'].split('harm')[1], eos))
 
         encoded_inputs = tokenizer(t, padding=True, return_tensors='pt')
         self.seq = encoded_inputs['input_ids'].contiguous()
@@ -107,6 +107,9 @@ def now_time():
 
 
 def postprocessing(string):
+    '''
+    adopted from https://github.com/yoonkim/CNN_sentence/blob/master/process_data.py
+    '''
     string = re.sub('\'s', ' \'s', string)
     string = re.sub('\'m', ' \'m', string)
     string = re.sub('\'ve', ' \'ve', string)
