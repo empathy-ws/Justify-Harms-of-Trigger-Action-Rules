@@ -45,22 +45,25 @@ We split the dataset into 3 subsets:
      <tr>
         <td align="center">train</td>
         <td align="center">2967</td>
-        <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/training_dataset.csv"> training_dataset.csv </a></td>
+        <td align="center">training set </a></td>
         <td align="center">Model Training</td>
     </tr>
     <tr>
         <td align="center">val</td>
         <td align="center">185</td>
-        <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/val_dataset.csv"> validation_dataset.csv </a></td>
+        <td align="center">validation set </a></td>
         <td align="center">Hyperparameter Tuning</td>
     </tr>
     <tr>
         <td align="center">test</td>
         <td align="center">557</td>
-        <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/test_dataset.csv"> test_dataset.csv </a></td>
+        <td align="center">test set </a></td>
         <td align="center">Model Testing</td>
     </tr>
 </table>
+
+The dataset can be downloaded by sending an email to one of the authors.
+This dataset should be used for academic non-commercial purposes only. Any other usage is prohibited according to the IFTTT Terms of Service.
 
 # Attribute Information
 
