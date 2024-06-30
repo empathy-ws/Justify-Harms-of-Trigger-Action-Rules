@@ -49,19 +49,19 @@ We split the dataset into 3 subsets:
      <tr>
         <td align="center">train</td>
         <td align="center">2967</td>
-        <td align="center">training set </a></td>
+        <td align="center">training_dataset.csv</a></td>
         <td align="center">Model Training</td>
     </tr>
     <tr>
         <td align="center">val</td>
         <td align="center">185</td>
-        <td align="center">validation set </a></td>
+        <td align="center">val_dataset.csv</a></td>
         <td align="center">Hyperparameter Tuning</td>
     </tr>
     <tr>
         <td align="center">test</td>
         <td align="center">557</td>
-        <td align="center">test set </a></td>
+        <td align="center">test_dataset.csv</a></td>
         <td align="center">Model Testing</td>
     </tr>
 </table>
