@@ -1,7 +1,11 @@
 # Justify Harms of Trigger-Action Rules
 This repository contains the supplementary material for the paper "Hybrid Prompt Learning for Generating Justifications of Security Risks in Automation Rules" submitted to ACM Transactions on Intelligent Systems and Technology. 
 
-This material comprises the dataset employed to train the language models and the source codes useful for the repeatability of the experiments.
+This material includes the dataset used to train the language models and the source codes useful for the reproducibility of the experiments.
+
+## Download
+The dataset can be downloaded by sending an email to one of the authors.<br>
+This dataset should be used for academic non-commercial purposes only. Any other usage is prohibited according to the IFTTT Terms of Service. <br>
 
 # Creators
 
@@ -10,7 +14,7 @@ Bernardo Breve (bbreve@unisa.it), Gaetano Cimino (gcimino@unisa.it), Vincenzo De
 University of Salerno
 
 # Dataset Information
-The dataset on which we performed our study was initially collected in 2017 by Mi <i> et al. </i> through a scraping process [1] (<a href="https://www-users.cse.umn.edu/~fengqian/ifttt_measurement/">download</a>). The dataset comprised over 320,000 rules (also known as applets) gathered over a six-month period, with each applet consisting of: $(i)$ a title, $(ii)$ a description of its behavior, $(iii)$ the trigger component divided into its trigger and relative channel, and $(iv)$ the action component divided into its action and relative channel. To train and evaluate our language models, we considered a subset of 3709 applets randomly selected that were classified as harmful by our harm identification algorithm proposed in [2]. In particular, the algorithm can classify an applet according to three classes of harm, namely <i>Personal harm</i>, identifying the applets that may result in the loss or compromise of sensitive data, which is solely due to the user's behavior, <i>Physical harm</i>, which refers to all the applets that may cause physical harm or damage to goods, and the harm is external, i.e., inflicted by third parties, and <i>Cybersecurity harm</i>, encompasses applets that may disrupt online services or distribute malware, and the harm is external as well. The subset of applets comprised 2044 applets for the Personal harm class, 727 applets for the Physical harm class, and 938 applets for the Cybersecurity harm class.
+The dataset on which we performed our study was initially collected in 2017 by Mi <i> et al. </i> through a scraping process [1] (<a href="https://www-users.cse.umn.edu/~fengqian/ifttt_measurement/">download</a>). The dataset comprised over 320,000 rules (also known as applets) gathered over a six-month period, with each applet consisting of: $(i)$ a title, $(ii)$ a description of its behavior, $(iii)$ the trigger component divided into its trigger and relative channel, and $(iv)$ the action component divided into its action and relative channel. To train and evaluate our language models, we considered a subset of 3709 applets randomly selected that were classified as harmful by our harm identification algorithm proposed in [2]. In particular, the algorithm can classify an applet according to three classes of harm, namely <i>Personal harm</i>, identifying applets that may cause the loss or compromise of sensitive data based solely on the user's behavior; <i>Physical harm</i>, which refers to all applets that may cause physical harm or damage to goods, and the harm is external, i.e., inflicted by third parties; and <i>Cybersecurity harm</i>, encompasses applets that may disrupt online services or distribute malware, and the harm is external as well. The subset of applets comprised 2044 applets for the Personal harm class, 727 applets for the Physical harm class, and 938 applets for the Cybersecurity harm class.
 
 <table align="center">
     <tr>
@@ -45,19 +49,19 @@ We split the dataset into 3 subsets:
      <tr>
         <td align="center">train</td>
         <td align="center">2967</td>
-        <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/training_dataset.csv"> training_dataset.csv </a></td>
+        <td align="center">training set </a></td>
         <td align="center">Model Training</td>
     </tr>
     <tr>
         <td align="center">val</td>
         <td align="center">185</td>
-        <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/val_dataset.csv"> validation_dataset.csv </a></td>
+        <td align="center">validation set </a></td>
         <td align="center">Hyperparameter Tuning</td>
     </tr>
     <tr>
         <td align="center">test</td>
         <td align="center">557</td>
-        <td align="center"><a href = "https://github.com/empathy-ws/Justify-Harms-of-Trigger-Action-Rules/blob/main/test_dataset.csv"> test_dataset.csv </a></td>
+        <td align="center">test set </a></td>
         <td align="center">Model Testing</td>
     </tr>
 </table>
@@ -117,7 +121,7 @@ An annotated sample is shown below.
 # Usage
 
 ## Task Definition
-In the considered natural language generation task, we assume a user has created an automation rule $R$ using a TAP, and an algorithm has identified a potential harm $H$ related to the execution of $R$. The goal is to generate a sequence of words $J=(j_1,j_2,\ldots,j_N)$ that justifies why $H$ can be caused by $R$. We propose a hybrid prompt learning-based strategy for generating justifications of security risks associated to automation rules. It applies a small change to $R$ by replacing the pre-trained language model embeddings of channel names involved in the rule with embeddings generated by the Channel2Vec strategy. The task performance is evaluated using BLEURT, BARTScore, MoverScore, METEOR and Coleman-Liau index.
+In the considered natural language generation task, we assume a user has created an automation rule $R$ using a TAP, and an algorithm has identified a potential harm $H$ related to the execution of $R$. The goal is to generate a sequence of words $J=(j_1,j_2,\ldots,j_N)$ that justifies why $H$ can be caused by $R$. We propose a hybrid prompt learning-based strategy for generating justifications of security risks associated to automation rules. It applies a small change to $R$ by replacing the pre-trained language model embeddings of channel names involved in the rule with embeddings generated through the Channel2Vec strategy, which improves their representation to maximize the interpretability by language models. The task performance is evaluated using BLEURT, BARTScore, MoverScore, METEOR and Coleman-Liau index.
 
 ## How to compute Channel2Vec representations?
 We extract the list of IFTTT channels to be mapped into embeddings from the dataset we proposed in [2] (<a href = "https://github.com/empathy-ws/Harmful-ECA-rules-classifiers">dataset</a>). It contains a variety of categories, ranging from online services and content providers to smart home devices, for a total of 435 channels. Channel descriptions are crawled on the Google Play Store app by running the following command

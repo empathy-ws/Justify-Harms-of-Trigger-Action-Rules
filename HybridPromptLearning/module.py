@@ -46,8 +46,6 @@ class PhiPrompt:
             pred_right = torch.where(mask == 1, explanation, torch.tensor(ignore_index).to(device))  # replace <pad> with ignore_index
             prediction = torch.cat([pred_left, pred_right], 1)  # (batch_size, total_len)
 
-            print('Fatto')
-
             return super().forward(attention_mask=pad_input, inputs_embeds=src, labels=prediction)
 
 class PhiPromptLearning(PhiPrompt, PhiForCausalLM):
@@ -101,8 +99,6 @@ class PythiaPrompt:
             pred_right = torch.where(mask == 1, explanation, torch.tensor(ignore_index).to(device))  # replace <pad> with ignore_index
             prediction = torch.cat([pred_left, pred_right], 1)  # (batch_size, total_len)
 
-            print('Fatto')
-
             return super().forward(attention_mask=pad_input, inputs_embeds=src, labels=prediction)
 
 class PythiaPromptLearning(PythiaPrompt, GPTNeoXForCausalLM):
@@ -155,8 +151,6 @@ class GPT2Prompt:
             pred_left = torch.full((user.size(0), self.src_len), ignore_index, dtype=torch.int64).to(device)  # (batch_size, src_len)
             pred_right = torch.where(mask == 1, explanation, torch.tensor(ignore_index).to(device))  # replace <pad> with ignore_index
             prediction = torch.cat([pred_left, pred_right], 1)  # (batch_size, total_len)
-
-            print('Fatto')
 
             return super().forward(attention_mask=pad_input, inputs_embeds=src, labels=prediction)
 
