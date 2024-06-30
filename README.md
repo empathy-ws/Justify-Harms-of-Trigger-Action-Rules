@@ -3,6 +3,10 @@ This repository contains the supplementary material for the paper "Hybrid Prompt
 
 This material includes the dataset used to train the language models and the source codes useful for the reproducibility of the experiments.
 
+## Download
+The dataset can be downloaded by sending an email to one of the authors.<br>
+This dataset should be used for academic non-commercial purposes only. Any other usage is prohibited according to the IFTTT Terms of Service. <br>
+
 # Creators
 
 Bernardo Breve (bbreve@unisa.it), Gaetano Cimino (gcimino@unisa.it), Vincenzo Deufemia (deufemia@unisa.it)
@@ -61,9 +65,6 @@ We split the dataset into 3 subsets:
         <td align="center">Model Testing</td>
     </tr>
 </table>
-
-The dataset can be downloaded by sending an email to one of the authors.
-This dataset should be used for academic non-commercial purposes only. Any other usage is prohibited according to the IFTTT Terms of Service.
 
 # Attribute Information
 
