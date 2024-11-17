@@ -1,5 +1,5 @@
 # Justify Harms of Trigger-Action Rules
-This repository contains the supplementary material for the paper "Hybrid Prompt Learning for Generating Justifications of Security Risks in Automation Rules" submitted to ACM Transactions on Intelligent Systems and Technology. 
+This repository contains the supplementary material for the paper "Hybrid Prompt Learning for Generating Justifications of Security Risks in Automation Rules" published in ACM Transactions on Intelligent Systems and Technology. 
 
 This material includes the dataset used to train the language models and the source codes useful for the reproducibility of the experiments.
 
